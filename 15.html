@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de Eventos de Medios</title>
+    <style>
+        /* Estilos básicos para mejorar la presentación */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 5px 10px;
+        }
+
+        #estado {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos de Medios en JavaScript</h1>
+
+    <!-- Elemento de audio para demostrar los eventos de medios -->
+    <audio id="miAudio" src="sonido aplausos y gritos del publico - Sound applause and shouts of the public_OJmaBUfKOBY.mp3"></audio>
+
+    <!-- Botones para controlar la reproducción -->
+    <button id="botonPlay">Reproducir</button>
+    <button id="botonPause">Pausar</button>
+
+    <!-- Elemento para mostrar el estado actual del audio -->
+    <p id="estado">Estado: Listo para reproducir</p>
+
+    <script>
+        // Obtenemos referencias a los elementos del DOM que vamos a manipular
+        const audio = document.getElementById('miAudio');
+        const botonPlay = document.getElementById('botonPlay');
+        const botonPause = document.getElementById('botonPause');
+        const estadoElemento = document.getElementById('estado');
+
+        // Evento 'play': se dispara cuando el audio comienza o se reanuda
+        
+
+        // Evento 'pause': se dispara cuando el audio se pausa
+        
+
+        // Evento 'ended': se dispara cuando el audio llega a su fin
+        
+
+        // Añadimos funcionalidad a los botones
+        botonPlay.addEventListener("click", ()=>{
+            audio.play()
+        })
+
+        botonPause.addEventListener("click", ()=>{
+            audio.pause()
+        })
+
+        // Evento 'loadedmetadata': se dispara cuando se han cargado los metadatos del audio
+        // Lo usamos para mostrar la duración total del audio
+        //audio...
+
+        // Evento 'timeupdate': se dispara periódicamente durante la reproducción
+        // Lo usamos para mostrar el progreso de la reproducción
+        //audio...
+
+
+    </script>
+</body>
+</html>

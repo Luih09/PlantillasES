@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo Simple de Arrastrar y Soltar</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .box {
+            /* width: 200px;
+            height: 200px; */
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #draggable {
+            background-color: lightblue;
+            cursor: move; /* Cambia el cursor para indicar que es arrastrable */
+        }
+        #droppable {
+            background-color: lightgreen;
+        }
+        #status {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal con las dos cajas -->
+    <div id="divContainer" class="container">
+        <!-- Elemento arrastrable -->
+        <div class="box" id="draggable" draggable="true">
+            <img style="width: 200px;"  src="./patera.jpg" alt=""> 
+            <!-- <img   src="./perro.jpg" alt="" style="width: 200px;"> -->
+
+        </div>
+        <!-- Área donde se puede soltar -->
+        <div  class="box" id="droppable" >
+            <img src="./gran canaria.jpg" style="width: 200px;">
+        </div>
+    </div>
+    <!-- Área para mostrar el estado actual -->
+    <div id="status">España promedio:</div>
+
+    <script>
+        // Obtener referencias a los elementos del DOM
+        const draggable = document.getElementById('draggable');
+        const droppable = document.getElementById('droppable');
+        const status = document.getElementById('status');
+        const divContainer = document.getElementById('divContainer');
+
+        // Evento que se dispara cuando comienza el arrastre
+        draggable.addEventListener("dragstart", (event) => {
+            event.dataTransfer.setData("text/plain", event.target.id)
+            status.innerText = "Perro: "
+        })
+        // Evento que se dispara cuando termina el arrastre
+        draggable.addEventListener("dragend", () => {
+            // status.innerText = "Estado: Tenes segarro amego?"
+            status.innerText = "Otra ayuda más"
+
+        })
+        // Evento que se dispara continuamente mientras un elemento se arrastra sobre el área de destino
+        draggable.addEventListener("drag", () => {
+            status.innerText = "Cuidao que los perdemos"
+
+        })
+        // Evento que se dispara cuando se suelta el elemento sobre el área de destino
+        droppable.addEventListener("dragover", (event) => {
+        event.preventDefault()
+        })
+
+
+        droppable.addEventListener("drop", (event) => {
+            //event.preventDefault()
+
+            //const id = event.dataTransfer.getData("text")
+            //event.target.appendChild(document.getElementById(id))
+            draggable.remove()
+            droppable.remove()
+            let imagen = document.createElement("img")
+            imagen.setAttribute("src", "./playa.jpg")
+            imagen.setAttribute("style", "width:500px")
+            
+            divContainer.appendChild(imagen)
+
+        })
+
+    </script>
+</body>
+</html>

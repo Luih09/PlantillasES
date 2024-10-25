@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplos de eventos de ratón</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        div, button, p {
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .area {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplos de eventos de ratón</h1>
+
+    <button id="botonClick">Haz clic aquí</button>
+
+    <p id="parrafoDobleClick">Haz doble clic en este párrafo</p>
+
+    <div id="areaMouseDown" class="area">Presiona el botón del ratón aquí</div>
+
+    <div id="areaMouseUp" class="area">Suelta el botón del ratón aquí</div>
+
+    <div id="areaMouseMove" class="area">Mueve el ratón dentro de este área</div>
+    <p id="coordenadas"></p>
+
+    <button id="botonMouseOver">Pasa el ratón por encima</button>
+
+    <button id="botonMouseOut">Saca el ratón de aquí</button>
+
+    <script>
+        
+        // click
+            let boton = document.getElementById("botonClick")
+            boton.addEventListener("click", ()=> alert("Muy bien, sabes clickar!!!"))
+        
+        // dblclick
+            let parrafo = document.getElementById("parrafoDobleClick")
+            parrafo.addEventListener("dblclick", () => parrafo.style.backgroundColor = "red")
+
+        // mousedown
+            let mouseDown = document.getElementById("areaMouseDown")
+            mouseDown.addEventListener("mousedown", ()=> alert("Muy bien, sabes presionar el ratón"))
+        // mouseup
+            let mouseUp = document.getElementById("areaMouseUp")
+            mouseUp.addEventListener("mouseup", () =>alert("Muy bien, sabes soltar el ratón"))
+        // mousemove
+            let mouseMove = document.getElementById("areaMouseMove")
+            mouseMove.addEventListener("mousemove", ()=> mouseMove.style.backgroundColor= "grey")
+            
+        // mouseover
+            let mouseOver = document.getElementById("botonMouseOver")
+            mouseOver.addEventListener("mouseover", ()=> {
+                mouseOver.style.borderRadius= "25px"
+                mouseOver.style.border= "solid 100px black"
+            })
+
+        // mouseout
+
+        let mouseOut = document.getElementById("botonMouseOut")
+            mouseOut.addEventListener("mouseout", ()=> {
+                mouseOut.style.borderRadius= "10px"
+                mouseOut.style.border= "solid 50px red"
+            })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de drag and drop</title>
+    <style>
+        /* Estilos para el elemento arrastrable */
+        #arrastrable {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            cursor: move; /* Cambia el cursor a 'move' para indicar que es arrastrable */
+        }
+        /* Estilos para la zona donde se puede soltar el elemento */
+        #zona-destino {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #2ecc71;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Elemento que se puede arrastrar -->
+    <div id="arrastrable" draggable="true">Arrástrame</div>
+    <!-- Zona donde se puede soltar el elemento arrastrable -->
+    <div id="zona-destino">Zona de destino</div>
+    <!-- Elemento para mostrar el estado actual del proceso de arrastrar y soltar -->
+    <p id="estado"></p>
+
+    <script>
+        // Obtenemos referencias a los elementos del DOM que vamos a manipular
+        const elementoArrastrable = document.getElementById('arrastrable');
+        const zonaDestino = document.getElementById('zona-destino');
+        const estadoElemento = document.getElementById('estado');
+
+        // Evento dragstart: se dispara cuando se comienza a arrastrar un elemento
+        
+            // Actualizamos el texto de estado para indicar que el arrastre ha comenzado
+        
+
+            // Guardamos el ID del elemento arrastrado en el objeto dataTransfer
+            // Esto nos permitirá identificar qué elemento se está arrastrando
+        
+
+            // Usamos setTimeout para asegurarnos de que este código se ejecute después de que
+            // el navegador haya procesado el inicio del arrastre
+        
+        
+
+        // Evento drag: se dispara continuamente mientras se arrastra un elemento
+        
+            // Actualizamos el texto de estado para mostrar que el arrastre está en progreso
+        
+
+        // Evento dragend: se dispara cuando se termina de arrastrar, independientemente de dónde se suelte
+            // Actualizamos el texto de estado para indicar que el arrastre ha finalizado
+
+
+            // Restauramos la opacidad del elemento a su valor original
+
+
+        // Prevenimos el comportamiento predeterminado del evento dragover
+        // Esto es necesario para permitir que se pueda soltar el elemento en esta zona
+        
+
+        // Evento drop: se dispara cuando se suelta un elemento arrastrado en la zona de destino
+            // Prevenimos el comportamiento predeterminado del navegador
+            //e.preventDefault();
+
+            // Recuperamos el ID del elemento arrastrado que guardamos en dragstart
+
+
+            // Obtenemos una referencia al elemento arrastrado usando su ID
+
+
+            // Movemos el elemento arrastrado a la zona de destino
+
+
+            // Actualizamos el texto de estado para indicar que el elemento ha sido soltado
+            
+    </script>
+</body>
+</html>
+
+
+

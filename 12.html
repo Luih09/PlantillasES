@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de formulario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        input, select {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+        }
+
+        #mensajes {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <form id="miFormulario">
+        <input type="text" id="nombre" placeholder="Nombre" class="form">
+        <input type="email" id="email" placeholder="Email" class="form">
+        <select class="form" id="opcion">
+            <option  value="">Selecciona una opción</option>
+            <option value="1">Opción 1</option>
+            <option value="2">Opción 2</option>
+        </select>
+        <input id="enviar" class="form" type="submit" value="Enviar">
+        <input class="form" type="reset" value="Resetear">
+    </form>
+
+    <div id="mensajes"></div>
+    <script>
+        const form = document.getElementById('miFormulario');
+        const nombre = document.getElementById('nombre');
+        const email = document.getElementById('email');
+        const opcion = document.getElementById('opcion');
+        const mensajes = document.getElementById('mensajes');
+        const divForm = document.getElementById('divForm');
+        
+
+        function mostrarMensaje(mensaje) {
+            mensajes.innerHTML += `<p>${mensaje}</p>`;
+        }
+
+        // Evento submit
+        
+        // Evento reset
+
+        // Evento change
+
+        // Eventos focus y blur
+
+        form.addEventListener("focusin", (event)=>{
+            let eventId =event.srcElement.id
+            form.style.boxShadow = "6px 8px 5px 0px rgba(105,105,105,1)"
+            switch(eventId){
+                case "nombre":
+                     let mensaje = document.createElement("p")
+                                mensaje.innerText = `Estás en ${eventId}`
+                                mensajes.appendChild(mensaje)
+                            break;
+                case "email":
+                    mensaje = document.createElement("p")
+                                mensaje.innerText = `Estás en ${eventId}`
+                                mensajes.appendChild(mensaje)
+                            break;
+                case "opcion":
+                     mensaje = document.createElement("p")
+                                mensaje.innerText = `Estás en ${eventId}`
+                                mensajes.appendChild(mensaje)
+                            break;
+                
+            }
+        } )
+
+        form.addEventListener("focusout", ()=>{
+            form.style.boxShadow = ""
+            console.log("Ya no estás en el formulario")
+        } )
+        
+        
+    </script>
+</body>
+</html>

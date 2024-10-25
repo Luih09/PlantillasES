@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminación de elementos del DOM</title>
+    <style>
+        .elemento {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 5px;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo de eliminación de elementos del DOM</h1>
+
+    <div id="contenedor">
+        <div id="elemento1" class="elemento">Elemento 1</div>
+        <div id="elemento2" class="elemento">Elemento 2</div>
+        <div id="elemento3" class="elemento">Elemento 3</div>
+    </div>
+
+    <button onclick="eliminarConRemoveChild()">Eliminar elemento1 con removeChild()</button>
+    <button onclick="eliminarConRemove()">Eliminar elemento2 con remove()</button>
+    <button onclick="eliminarTodos()">Eliminar todos los elementos (bucle)</button>
+    <button onclick="restaurarElementos()">Restaurar Elementos</button>
+
+    <script>
+        let contenedor = document.querySelector("#contenedor")
+        function eliminarConRemoveChild() {
+            
+            contenedor.removeChild(contenedor.firstChild)
+        }
+
+        function eliminarConRemove() {
+            
+            contenedor.querySelector("#elemento2").remove()
+
+
+        }
+
+        function eliminarTodos() {
+           while(contenedor.firstChild){
+                contenedor.removeChild(contenedor.firstChild)
+
+            }
+        }
+
+        function restaurarElementos() {
+            for(let i=1;i<=3;i++){
+                let elemento = document.createElement("div")
+                elemento.setAttribute("id", `elemento${i}`)
+                elemento.setAttribute("class", "elemento")
+                elemento.innerText = `Elemento${i}`
+                contenedor.appendChild(elemento)
+            }
+        }
+    </script>
+</body>
+</html>

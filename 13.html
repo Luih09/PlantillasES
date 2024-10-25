@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos de Ventana en JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        #contenido {
+            height: 1500px;
+        }
+        /* Para permitir scroll */
+        #mensajes {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos de Ventana</h1>
+    <div id="contenido"></div>
+    <div id="mensajes"></div>
+
+    <script>
+        // Generar contenido dinámicamente
+        const contenido = document.getElementById('contenido');
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('p');
+            p.textContent = `Este es un contenido largo para permitir scroll. (Párrafo ${i + 1})`;
+            contenido.appendChild(p);
+        }
+
+        const mensajes = document.getElementById('mensajes');
+
+        function mostrarMensaje(mensaje) {
+            
+            const p = document.createElement('p');
+                p.textContent = mensaje;
+                mensajes.appendChild(p);
+            if (mensajes.childElementCount > 5){
+                mensajes.removeChild(mensajes.firstChild)
+            } 
+           
+            // Limitar a 5 mensajes
+          
+        }
+
+        // Evento load
+        window.addEventListener("load", () => {
+           mostrarMensaje("Bien sabes cargar las páginas maquinón")
+        })
+        // Evento resize
+        window.addEventListener("resize", ( ) => {
+            mostrarMensaje(`El tamaño de la página es de: ${window.innerWidth} x ${window.innerHeight}`)
+
+        })
+
+
+        // Evento scroll
+        window.addEventListener("scroll", () => {
+            mostrarMensaje("has scrolleado")
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplos de eventos de teclado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .event-area {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .output {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplos de eventos de teclado</h1>
+
+    <div class="event-area">
+        <h2>keydown</h2>
+        <textarea id="keydownArea" placeholder="Prueba keydown aquí..."></textarea>
+        <div id="keydownOutput" class="output"></div>
+    </div>
+
+    <div class="event-area">
+        <h2>keyup</h2>
+        <textarea id="keyupArea" placeholder="Prueba keyup aquí..."></textarea>
+        <div id="keyupOutput" class="output"></div>
+    </div>
+
+    <script>
+        // keydown event
+            const keyDownArea= document.getElementById("keydownArea")
+                keyDownArea.addEventListener("keydown", () => {
+                const keydownOutput = document.getElementById("keydownOutput")
+                keydownOutput.style.backgroundColor = "blue"
+                const parrafo = document.createElement("h2")
+                parrafo.style.color = "red"
+                parrafo.innerText="Hola Juancarlitos, sabes presionar teclas pedazo de máquina"
+                keydownOutput.appendChild(parrafo)
+
+            })
+        // keyup event
+
+        const keyUpArea= document.getElementById("keyupArea")
+                keyUpArea.addEventListener("keyup", (event) => {
+                    if(event.key == "h"){
+                const keyupOutput = document.getElementById("keyupOutput")
+                keyupOutput.style.backgroundColor = "blue"
+                const parrafo = document.createElement("h2")
+                parrafo.style.color = "red"
+                parrafo.innerText="Hola Juancarlitos, sabes presionar teclas pedazo de máquina"
+                keyupOutput.appendChild(parrafo)}
+                })
+        
+    </script>
+</body>
+</html>

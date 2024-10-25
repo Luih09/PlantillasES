@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de eventos</title>
+</head>
+<body>
+    <button id="miBoton">Haz clic aquí</button>
+
+    <script>
+        // Obtenemos la referencia al botón
+        let boton = document.getElementById('miBoton');
+
+        // Añadir un evento de clic usando addEventListener
+        boton.addEventListener('click', function () {
+            alert('¡Has hecho clic en el botón!');
+        });
+
+    </script>
+</body>
+</html>

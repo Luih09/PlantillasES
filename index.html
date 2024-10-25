@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos táctiles</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .evento {
+            width: 90%;
+            max-width: 300px;
+            height: 150px;
+            border: 2px solid black;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            line-height: 1.5;
+            touch-action: none;
+        }
+
+        #informacion {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 40px;
+            font-size: 18px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 600px) {
+            .evento {
+                height: 120px;
+                font-size: 18px;
+            }
+
+            #informacion {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align:center;">Toca aquí</div> <!-- Texto indicando al usuario para que toque el área -->
+    <div class="evento" id="evento1"></div> <!-- Área donde se detectarán los eventos táctiles -->
+    <div id="informacion"></div> <!-- div donde se mostrará la información de los eventos -->
+
+    <script>
+        // Configuración número máximo de eventos a mostrar
+        const maxEventos
+
+        // Elementos del DOM
+         const divInformacion = document.getElementById("informacion")// Referencia al div donde se mostrará la información de los eventos
+         const divEvento = document.getElementById("evento1") // Referencia al área donde se detectan los eventos táctiles
+
+        // Estado
+        let ... // Array para almacenar los eventos registrados
+        let dentroDelDiv = ... // Variable boleana para rastrear si el dedo está dentro del div
+
+        // Funciones
+        function mostrarInformacion(evento, mensaje) {
+            // Añade un nuevo evento al principio del array
+            ...
+
+            // Si se supera el número máximo de eventos, elimina el último evento del array
+            if ...
+
+            // Funcion actualizar el contenido del div de información con los eventos registrados
+            
+        }
+
+        function actualizarInformacionDiv() {
+            // Muestra los eventos en el div de información
+            ...innerHTML = ...
+                map  // Formato del mensaje mostrando el tipo de evento y su mensaje
+                .join('<br>'); // Une los mensajes con un salto de línea para mostrarlos en líneas separadas
+        }
+
+        function manejarTouchStart() {
+            // Mensaje cuando se inicia el toque en el elemento
+            // Cambiar estado variable boleana que indica que estamos dentro del div
+        }
+
+        function manejarTouchMove(e) {
+            const touch = e.touches[0]; // Obtiene la posición del primer toque
+            const rect = (Referencia al área donde se detectan los eventos táctiles).getBoundingClientRect(); // Obtiene las dimensiones y posición del div
+
+            if (dentroDelDiv && (touch.clientX < rect.left || touch.clientX > rect.right || touch.clientY < rect.top || touch.clientY > rect.bottom)) {
+                manejarTouchLeave(); // Si sale del área, llama a la función manejarTouchLeave
+                return;
+            } else if (!dentroDelDiv && (touch.clientX >= rect.left && touch.clientX <= rect.right && touch.clientY >= rect.top && touch.clientY <= rect.bottom)) {
+                manejarTouchEnter(); // Si entra nuevamente en el área, llama a la función manejarTouchEnter
+                return;
+            }
+
+            if (dentroDelDiv) { // Solo muestra coordenadas si estamos dentro del div
+                // Mostar información con coordenadas touch.clientX y touch.clientY
+                ...
+            }
+        }
+
+        function manejarTouchEnd() {
+            // Mensaje cuando se suelta el elemento después de tocarlo
+            // Cambiar estado variable boleana al soltar el dedo
+        }
+
+        function manejarTouchLeave() {
+            // Mensaje cuando se sale del área del elemento
+            // Cambiar estado variable boleana al salir el dedo
+        }
+
+        function manejarTouchEnter() {
+            // Mensaje cuando vuelve a entrar en el área
+            // Cambiar estado variable boleana
+        }
+
+        // Event Listeners para manejar los diferentes eventos táctiles en el área designada
+        // Escucha el evento touchstart y llama a la función correspondiente
+        (Referencia al área donde se detectan los eventos táctiles).addEventListener('touchstart', manejarTouchStart);
+        // Escucha el evento touchmove y llama a la función correspondiente
+        ...
+        // Escucha el evento touchend y llama a la función correspondiente
+        ...
+    </script>
+</body>
+</html>
